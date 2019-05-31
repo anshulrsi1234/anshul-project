@@ -1,0 +1,55 @@
+<div>
+    <h4>Add ZTC Config</h4><hr/>
+    <div *ngIf="ztcError">
+        <h4>{{ztcError.description}}</h4>
+    </div>
+    <form [formGroup]="addZTCForm" (ngSubmit)="AddZTCConfig()">
+    <table align="center" style="margin: 0px auto;">     
+        <tr>
+          <td align="left"><label>BEPID <font color="red">*</font></label> : </td>
+          <td><input formControlName="BEPID"></td>
+          <div *ngIf="submitted && f.BEPID.errors" class="invalid-feedback" style="display: block">
+              <div *ngIf="f.BEPID.errors.required"><font color="red" style="display: block">BEPID is required</font></div>             
+          </div>
+        </tr>
+        <tr>
+          <td align="left"><label>TVSSID <font color="red">*</font></label> : </td>
+          <td><input formControlName="TVSSID" minlength="1"></td>
+          <div *ngIf="submitted && f.TVSSID.errors" class="invalid-feedback">
+              <div *ngIf="f.TVSSID.errors.required"><font color="red">TVSSID is required</font></div>             
+          </div>
+        </tr>
+        <tr>
+          <td align="left"><label>HardwareVersion <font color="red">*</font></label> :</td>
+          <td><input formControlName="hardwareVersion" minlength="1"></td>
+          <div *ngIf="submitted && f.hardwareVersion.errors" class="invalid-feedback">
+              <div *ngIf="f.hardwareVersion.errors.required"><font color="red">HardwareVersion is required</font></div>
+          </div>         
+        </tr>
+  
+        <tr>
+          <td align="left"><label>SerialNumber <font color="red">*</font></label> : </td>
+          <td><input formControlName="serialNumber" minlength="5" maxlength=""></td>
+          <div *ngIf="submitted && f.serialNumber.errors" class="invalid-feedback">
+              <div *ngIf="f.serialNumber.errors.required"><font color="red">SerialNumber is required</font></div>
+          </div>
+          <div *ngIf="f.serialNumber.errors?.minlength"><font color="red">Serial Number must be at least 5 characters long.</font></div> 
+        </tr>
+        <tr>
+            <td align="left"><label>MAC <font color="red">*</font></label> : </td>
+            <td><input formControlName="mac"></td>
+            <div *ngIf="submitted && f.mac.errors" class="invalid-feedback">
+                <div *ngIf="f.mac.errors.required"><font color="red">MAC is required</font></div>
+            </div>         
+          </tr>        
+        <tr>
+          <td colspan="2"><hr></td>
+        </tr>
+  
+        <tr align="center">
+            <td colspan="2"><input type="submit" value ="ADD"> &nbsp;&nbsp; <input type="reset" value="Cancel">&nbsp;&nbsp; <a routerLink="/app-welcome">Back to Welcome Page</a></td>
+        </tr>
+  
+    </table>
+  </form>
+  <div>

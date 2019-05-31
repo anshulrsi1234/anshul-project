@@ -1,0 +1,43 @@
+<div>
+  <p style="text-align: left;color:#c20f27">
+    Welcome Page {{username }}
+  </p>
+</div>
+
+<div>
+   <hr>
+</div>
+
+<div class="left">
+  <a routerLink="#"  (click)="AddZTCConfigView()">Add ZTC Config</a> &nbsp; | &nbsp; 
+  <a routerLink ="#" (click)="getZTCConfigView()">Get ZTC Config</a> &nbsp; | &nbsp;  
+  <a routerLink ="#" (click)="searchZTCConfigView()">Search ZTC Config</a>&nbsp; | &nbsp;
+  <a routerLink ="#" (click)="updateMACRepairConfigView()">Update MAC Repair Config</a> &nbsp; | &nbsp;
+  <a routerLink ="#" (click)="deleteZTCConfigView()">Delete ZTC Config</a>
+<div>
+
+<hr>
+
+<div>
+    <div class="open-card-BG" *ngIf="addZTCView">
+         <app-addztc></app-addztc>
+    </div>
+    <div class="open-card-BG" *ngIf="getZTCView">
+       <app-getztcdetail></app-getztcdetail>
+    </div>
+    <div class="open-card-BG" *ngIf="searchZTCView">
+         <app-searchztcdetail></app-searchztcdetail>
+     </div>
+     <div class="open-card-BG" *ngIf="updateZTCView">
+        <p> Update ZTC Config </p>
+     </div>
+     <div class="open-card-BG" *ngIf="deleteZTCView">
+        <p> Delete ZTC Config</p>
+     </div>
+</div>
+
+
+
+
+
+

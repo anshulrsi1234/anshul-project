@@ -1,0 +1,48 @@
+<form [formGroup]="searchform" (ngSubmit)="getZTCDetail($event)">
+  <h4> Search ZTC Config </h4>
+  <table align="center">
+      <div *ngIf="submit && f.mac.errors">
+        <div *ngIf="f.mac.errors.required">
+            <tr><font color="red">MAC is required</font></tr>
+        </div>
+      </div>
+    <tr *ngIf="ztcError">
+      <h4>{{ztcError.description}}</h4>
+    </tr> 
+    
+    <tr *ngIf="deleteSucsess">
+        <h4>{{deleteSucsess}}</h4>
+    </tr>
+
+    <tr>MAC <font color="red">*</font> &nbsp;<input maxlength="20" formControlName="mac" [ngModel]="mac"> &nbsp; &nbsp;
+      <input type="submit" value="Search"> &nbsp;&nbsp; 
+      <input type="reset" value="Cancel">
+    </tr>
+  </table>
+  <br>
+  <hr>
+  <div *ngIf="results">
+      <table align="center">
+          <tr>
+            <th>BEPID</th>
+            <th>TVSSID</th>
+            <th>HardwareVersion</th>
+            <th>SerialNumber</th>
+            <th>BEPSiteName</th>
+            <th>Block Reason</th>     
+            <th>Action</th>     
+          </tr>
+          <tr><br></tr>          
+          <tr>
+             <td>{{results.BEPID}}</td>
+             <td>{{results.TVSSID}}</td>
+             <td>{{results.hardwareVersion}}</td>
+             <td>{{results.serialNumber}}</td>
+             <td>{{results.BEPSiteName}}</td>
+             <td>{{results.blockReason}}</td>
+             <td><a href="#" (click)="deleteZTCConfig(mac)"><img src="../cancel.png"></a></td>
+           </tr>       
+      </table>
+  </div>
+  
+</form>

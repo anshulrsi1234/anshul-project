@@ -1,0 +1,30 @@
+<form [formGroup]="loginForm" (ngSubmit)="AddUser()">
+ 
+ <table align="center" style="margin: 0px auto;">
+   <tr>
+     <td><label for="username"><B>User Name : </B></label></td>
+     <td><input formControlName="username"></td>
+     <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required"><font color="red">User Name is required</font></div>
+    </div>
+   </tr>
+   <tr>
+     <td><label for="password"><B>Password :  </B></label></td>
+     <td><input formControlName="password" id="password"></td>
+     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required"><font color="red">Password is required</font></div>
+    </div>
+   </tr>
+   <tr>
+     <td colspan="2"><hr></td>
+    </tr>
+  </table>
+  <table  align="center" style="margin: 0px auto;">
+   <tr>
+     <td><input type="submit" value="OK"> &nbsp;&nbsp;&nbsp;
+     <input type="reset" value="Cancel"/>&nbsp;&nbsp;&nbsp;<a routerLink="/app-registration">Register Now</a><td>
+    </tr>
+   </table>
+   <router-outlet></router-outlet>
+  </form>
+ 

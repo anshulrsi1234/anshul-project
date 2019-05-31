@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-root',
@@ -6,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
+
+  
+  constructor(private router: Router){
+    this.router.navigate(['/app-login']);
   }
-  title = 'MyAngular';
+
+  ngOnInit() {
+   
+    
+  }
+  title = 'Welcome to MyProject';
   newuser = 'New User';
 }

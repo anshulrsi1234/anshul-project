@@ -20,6 +20,8 @@ import { Ng2OrderModule } from 'ng2-order-pipe'; //importing the module
 import {NgxPaginationModule} from 'ngx-pagination';
 import { SearchztcdetailComponent } from './searchztcdetail/searchztcdetail.component';
 import { UpdateZtcConfigComponent } from './update-ztc-config/update-ztc-config.component'; // <-- import the module
+import {MatDialogModule, MatCardModule, MatIconModule, MatToolbarModule, MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -42,9 +44,18 @@ import { UpdateZtcConfigComponent } from './update-ztc-config/update-ztc-config.
     CommonModule,
     Ng2SearchPipeModule,
     Ng2OrderModule ,
-    NgxPaginationModule//add here
+    NgxPaginationModule,
+    MatDialogModule,
+    MatCardModule,
+    MatIconModule,
+    MatToolbarModule,
+    BrowserAnimationsModule
   ],
-  providers: [ZtcConfigServiceService],
+  providers: [ZtcConfigServiceService,
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} }
+  ],
+  entryComponents: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

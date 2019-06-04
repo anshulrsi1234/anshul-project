@@ -9,19 +9,21 @@
     <tr *ngIf="ztcError">
       <h4>{{ztcError.description}}</h4>
     </tr> 
-    
-    <tr *ngIf="deleteSucsess">
+    <div *ngIf="deleteSucsess?.length>0">
         <h4>{{deleteSucsess}}</h4>
-    </tr>
+    </div>     
 
     <tr>MAC <font color="red">*</font> &nbsp;<input maxlength="20" formControlName="mac" [ngModel]="mac"> &nbsp; &nbsp;
       <input type="submit" value="Search"> &nbsp;&nbsp; 
       <input type="reset" value="Cancel">
     </tr>
+
   </table>
   <br>
   <hr>
-  <div *ngIf="results">
+  <mat-card>
+   <mat-card-content>
+    <div *ngIf="results">
       <table align="center">
           <tr>
             <th>BEPID</th>
@@ -30,7 +32,7 @@
             <th>SerialNumber</th>
             <th>BEPSiteName</th>
             <th>Block Reason</th>     
-            <th>Action</th>     
+            <th colspan="2">Action</th>     
           </tr>
           <tr><br></tr>          
           <tr>
@@ -40,9 +42,11 @@
              <td>{{results.serialNumber}}</td>
              <td>{{results.BEPSiteName}}</td>
              <td>{{results.blockReason}}</td>
-             <td><a href="#" (click)="deleteZTCConfig(mac)"><img src="../cancel.png"></a></td>
+             <td><mat-icon (click)="deleteZTCConfig(mac)">Delete </mat-icon> &nbsp;&nbsp;  &nbsp;&nbsp; <mat-icon (click)="updateZTCConfig(results)">Edit</mat-icon> </td>            
            </tr>       
       </table>
   </div>
-  
+  </mat-card-content>
+</mat-card>
 </form>
+

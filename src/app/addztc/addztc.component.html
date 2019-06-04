@@ -1,10 +1,10 @@
-
+<h4>Add ZTC Config</h4><hr/>
+<mat-card-content>
 <div>
-  <h4>Add ZTC Config</h4><hr/>
   <div *ngIf="ztcError">
       <h4>{{ztcError.description}}</h4>
   </div>
-  <form [formGroup]="addZTCForm" (ngSubmit)="AddZTCConfig()">
+  <form [formGroup]="addZTCForm" (ngSubmit)="SaveZTCConfig()">
   <table align="center" style="margin: 0px auto;">     
       <tr>
         <td align="left"><label>BEPID <font color="red">*</font></label> : </td>
@@ -41,10 +41,10 @@
       </tr>
       <tr>
           <td align="left"><label>MAC <font color="red">*</font></label> : </td>
-          <td><input formControlName="mac"></td>
+          <td><input formControlName="mac" minlength="5" maxlength=""></td>
           <div *ngIf="submitted && f.mac.errors" class="invalid-feedback">
               <div *ngIf="f.mac.errors.required"><font color="red">MAC is required</font></div>
-          </div>         
+          </div>          
         </tr>
       
       <tr>
@@ -52,15 +52,16 @@
       </tr>
 
       <tr align="center">
-          <td colspan="2"><input type="submit" value ="ADD"> &nbsp;&nbsp; <input type="reset" value="Cancel">&nbsp;&nbsp; <a routerLink="/app-welcome">Back to Welcome Page</a></td>
+          <td colspan="2"><input type="submit" value ="Save"> &nbsp;&nbsp; <input type="reset" value="Cancel">&nbsp;&nbsp;</td>
       </tr>
-
   </table>
 </form>
-<div>
 
-<div *ngIf="results">
-  <h4>Get Created ZTC Config {{ results }}</h4><hr/>
+</div>
+
+</mat-card-content>
+
+<div *ngIf="results"> 
       <table align="center" style="margin: 0px auto;">
             <tr>
               <th>BEPID</th>

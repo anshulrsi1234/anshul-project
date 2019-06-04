@@ -9,7 +9,7 @@ import { mcall } from 'q';
   providedIn: 'root'
 })
 export class ZtcConfigServiceService {
-
+ 
   url:string;
   searchURL: string;
   deleteURL: string;
@@ -101,6 +101,11 @@ export class ZtcConfigServiceService {
       ]
     }
 
+    /**
+     * Method exposed to get ZTC Config detail
+     * @param mac 
+     * 
+     */
     searchZTCConfigByMac(mac){
 
       this.searchURL = 'api/bep-ztc/v1.0/mac/';
@@ -141,6 +146,31 @@ export class ZtcConfigServiceService {
 
 
       return this.http.delete(deleteURL,options);
+    }
+
+    /**
+     * Method exposed to update the STBZTC Config
+     * @param mac 
+     * @param stbztc 
+     */
+    updateZTCConfig(mac:string,stbztc) {
+
+      this.url = 'api/bep-ztc/v1.0/mac/';
+    
+      let httpHeaders = new HttpHeaders({'Content-Type' : 'application/json','X-Correlation-Id': '12345',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+      'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
+      'Access-Control-Allow-Credentials': 'true'
+    }); 
+  
+      let options = {
+        headers: httpHeaders
+      };      
+      this.url =this.url+mac;  
+      console.log("URL For UpdateZTCConfig call is  ::: "+ this.url);
+      return this.http.put(this.url, stbztc, options);
+      
     }
 
 

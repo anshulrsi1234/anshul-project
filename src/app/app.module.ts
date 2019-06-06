@@ -22,6 +22,7 @@ import { SearchztcdetailComponent } from './searchztcdetail/searchztcdetail.comp
 import { UpdateZtcConfigComponent } from './update-ztc-config/update-ztc-config.component'; // <-- import the module
 import {MatDialogModule, MatCardModule, MatIconModule, MatToolbarModule, MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { StbztcoverrideComponent } from './stbztcoverride/stbztcoverride.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AddztcComponent,
     GetztcdetailComponent,
     SearchztcdetailComponent,
-    UpdateZtcConfigComponent
+    UpdateZtcConfigComponent,
+    StbztcoverrideComponent
   ],
   imports: [
     BrowserModule,

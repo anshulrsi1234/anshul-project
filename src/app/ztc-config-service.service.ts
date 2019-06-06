@@ -173,5 +173,48 @@ export class ZtcConfigServiceService {
       
     }
 
+  /**
+    Method exposed to save data in STB Override
+  */
+  SaveZTCOverridedetail(stbztcC) : Observable<Object> {
+
+    this.url = 'api/bep-ztc-mgmt/v1.0/stbztcoverride-management/stbztcoverride';
+    
+    let httpHeaders = new HttpHeaders({'Content-Type' : 'application/json','X-Correlation-Id': '12345',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+    'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
+    'Access-Control-Allow-Credentials': 'true'}); 
+
+    let options = {
+      headers: httpHeaders
+    };   
+
+    this.url =this.url;  
+    return this.http.put(this.url, stbztcC, options);
+
+  }
+/**
+  Method exposed to delete the STB ZTC override entry
+ */
+  removeSTBZtcOverride(stbztcC){
+
+    this.url = 'api/bep-ztc-mgmt/v1.0/stbztcoverride-management/stbztcoverride/remove';
+    
+    let httpHeaders = new HttpHeaders({'Content-Type' : 'application/json','X-Correlation-Id': '12345',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+    'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
+    'Access-Control-Allow-Credentials': 'true'}); 
+
+    let options = {
+      headers: httpHeaders
+    };   
+
+    this.url =this.url;  
+    return this.http.post(this.url, stbztcC, options);
+
+  }
+
 
 }

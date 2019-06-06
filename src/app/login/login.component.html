@@ -1,5 +1,7 @@
 <form [formGroup]="loginForm" (ngSubmit)="AddUser()">
- 
+ <div *ngIf="loginError?.length > 2">
+    <h4>{{loginError}}</h4>
+ </div>
  <table align="center" style="margin: 0px auto;">
    <tr>
      <td><label for="username"><B>User Name : </B></label></td>

@@ -1,5 +1,5 @@
-<h1>{{ header }}</h1>
-<table>
+<table align="center">
+        <h4>{{ header }}</h4>
                 <tr>
                                 <td>First Name</td>
                                 <td><input type="text" name=""></td>
@@ -10,23 +10,25 @@
                 </tr>
                 <tr>
                                 <td>DOB</td>
-                                <td>AAAAAAAAAA</td>
+                                <td><input type="date" data-date-format="DD MMMM YYYY"></td>
                 </tr>
                 <tr>
                                 <td>Gender</td>
                                 <td><select name="gender">
-                                                <option value="Male" selected>Male</option>
+                                                <option value="-1" selected>select</option>
+                                                <option value="Male">Male</option>
                                                 <option value="Female">Female</option>
                                 </select>
                                 </td>
                 </tr>
                 <tr>
                                 <td>Matirial Status</td>
-                                <td> <input type="radio" name="Single"> Single <input type="radio" name="Married">  Married : </td>
+                                <td>                                                                   
+                                    <input type="radio" name="status" value="single"> Single <input type="radio" name="status" value="married">  Married : </td>
                 </tr>
                 <tr>
                                 <td>Email</td>
-                                <td><input type="text" name="" ></td>
+                                <td><input type="email" name="" ></td>
                 </tr>
                 <tr>
                                 <td>Password</td>
@@ -34,18 +36,19 @@
                 </tr>
                 <tr>
                                 <td>Phone No</td>
-                                <td><input type="text" name=""></td>
+                                <td><input type="number" name=""></td>
                 </tr>
                 <tr>
                                 <td>Adrress</td>
                                 <td><textarea name="" rows="8" cols="20"></textarea></td>
                 </tr>
-</table>
-<br>
-<table>
+                <tr>
+                        <td colspan="2" align="center"><hr></td>
+                 </tr>
 
-<tr>
-                <td><input type="submit" value="Submit"> &nbsp;&nbsp;<input type="reset" value="Cancel">
-</tr>
-
+                <tr>
+                        <td colspan="2" align="center"><input type="submit" value="Submit"> &nbsp;&nbsp;<input type="reset" value="Cancel"></td>
+                 </tr>
 </table>
+
+

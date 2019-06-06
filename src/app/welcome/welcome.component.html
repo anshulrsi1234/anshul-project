@@ -2,6 +2,10 @@
   <p style="text-align: left;color:#c20f27">
     Welcome Page {{username }}
   </p>
+
+  <p style="text-align: right;color:#c20f27">
+      <a [routerLink] ="['/app-login']">Logout</a>
+   </p>
 </div>
 
 <div>
@@ -13,7 +17,7 @@
   <a routerLink ="#" (click)="getZTCConfigView()">Get ZTC Config</a> &nbsp; | &nbsp;  
   <a routerLink ="#" (click)="searchZTCConfigView()">Search ZTC Config</a>&nbsp; | &nbsp;
   <a routerLink ="#" (click)="updateMACRepairConfigView()">Update MAC Repair Config</a> &nbsp; | &nbsp;
-  <a routerLink ="#" (click)="deleteZTCConfigView()">Delete ZTC Config</a>
+  <a routerLink ="#" (click)="deleteZTCConfigView()">STB Override Entry</a>
 <div>
 
 <hr>
@@ -32,7 +36,7 @@
         <p> Update ZTC Config </p>
      </div>
      <div class="open-card-BG" *ngIf="deleteZTCView">
-        <p> Delete ZTC Config</p>
+        <app-stbztcoverride></app-stbztcoverride>
      </div>
 </div>
 

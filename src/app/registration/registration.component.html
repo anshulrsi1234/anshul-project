@@ -2,45 +2,47 @@
         <h4>{{ header }}</h4>
                 <tr>
                                 <td>First Name</td>
-                                <td><input type="text" name=""></td>
+                                <td><input name="fname" formControlName="fname"></td>
                 </tr>
                 <tr>
                                 <td>Last Name</td>
-                                <td><input type="text" name=""></td>
+                                <td><input type="text" name="lname" formControlName="lname"></td>
                 </tr>
                 <tr>
                                 <td>DOB</td>
-                                <td><input type="date" data-date-format="DD MMMM YYYY"></td>
+                                <td><input type="date" data-date-format="DD MMMM YYYY" formControlName="date"></td>
                 </tr>
                 <tr>
                                 <td>Gender</td>
-                                <td><select name="gender">
-                                                <option value="-1" selected>select</option>
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
-                                </select>
+                                <td><select name="gender" formControlName="gender">
+                                                <option value="-1" selected>select</option>                                                
+                                                  <option value="male">Male</option>
+                                                  <option value="female">Female</option> 
+                                     </select>
                                 </td>
                 </tr>
                 <tr>
                                 <td>Matirial Status</td>
                                 <td>                                                                   
-                                    <input type="radio" name="status" value="single"> Single <input type="radio" name="status" value="married">  Married : </td>
+                                    <input type="radio" name="status" value="single" formControlName="status">Single 
+                                    <input type="radio" name="status" value="married" formControlName="status">Married 
+                                </td>
                 </tr>
                 <tr>
                                 <td>Email</td>
-                                <td><input type="email" name="" ></td>
+                                <td><input type="email" name="email" formControlName="email"></td>
                 </tr>
                 <tr>
                                 <td>Password</td>
-                                <td><input type="password" name=""></td>
+                                <td><input type="password" name="password" formControlName="password"></td>
                 </tr>
                 <tr>
                                 <td>Phone No</td>
-                                <td><input type="number" name=""></td>
+                                <td><input type="number" name="phoneno" formControlName="phoneno"></td>
                 </tr>
                 <tr>
-                                <td>Adrress</td>
-                                <td><textarea name="" rows="8" cols="20"></textarea></td>
+                                <td>Address</td>
+                                <td><textarea name="address" rows="8" cols="20" formControlName="address"></textarea></td>
                 </tr>
                 <tr>
                         <td colspan="2" align="center"><hr></td>

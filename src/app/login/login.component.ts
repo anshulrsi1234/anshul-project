@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginAuthServiceService } from '../service/login-auth-service.service';
+import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
 
 
 
@@ -15,9 +16,11 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
   loginError:string
+  public data:any=[]
+  public key = "username";
 
   constructor(private router : Router,private formBuilder: FormBuilder,
-    private loginService : LoginAuthServiceService){
+    private loginService : LoginAuthServiceService,@Inject(SESSION_STORAGE) private storage: WebStorageService){
       
   }
 
@@ -42,7 +45,7 @@ Method is exposed to to
   AddUser(){     
 
     this.submitted = true;
-     this.loginError=null;
+    this.loginError=null;
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
@@ -52,11 +55,14 @@ Method is exposed to to
     if(this.loginForm.value.username=='aa' && this.loginForm.value.password=='bb'){
           console.log("AddUser is called");
           this.loginError=null;
+          this.storage.set(this.key, this.loginForm.value.username);
+          this.data= this.storage.get(this.key);
+          console.log("Key is :::: " + this.data);
           this.router.navigate(['/app-welcome']);
     }else{
       this.loginError="Invalid UserName or Password. Please try Again|"
     }    
    
-  }
+}
 
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,13 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService,private route : Router) { }
 
   ngOnInit() {
+
+    const username = this.storage.get("username");
+    console.log("user name is ::::: " + username);
     
   }
 
   title = 'app';
+  username:string = this.storage.get("username");
+  
   
   addZTCView: boolean = false;
   getZTCView: boolean = false;
@@ -69,6 +76,15 @@ export class WelcomeComponent implements OnInit {
     this.searchZTCView = false;
     this.updateZTCView =false;
     this.deleteZTCView =true;
+  }
+
+/**
+ * Method is exposed to clear session and logout from appliaction
+ */
+  logout(){
+    console.log("logout method is called ::::::::::: ");
+    this.storage.remove("username")
+    this.route.navigate(['/app-login'])
   }
 
 }

@@ -23,6 +23,9 @@ import { UpdateZtcConfigComponent } from './update-ztc-config/update-ztc-config.
 import {MatDialogModule, MatCardModule, MatIconModule, MatToolbarModule, MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { StbztcoverrideComponent } from './stbztcoverride/stbztcoverride.component';
+// Import ng-circle-progress
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { StorageServiceModule} from 'angular-webstorage-service';
 
 @NgModule({
   declarations: [
@@ -51,12 +54,24 @@ import { StbztcoverrideComponent } from './stbztcoverride/stbztcoverride.compone
     MatCardModule,
     MatIconModule,
     MatToolbarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    // Specify ng-circle-progress as an import
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300  
+    }),
+    StorageServiceModule
   ],
   providers: [ZtcConfigServiceService,
     { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MatDialogRef, useValue: {} }
   ],
+    
   entryComponents: [AppComponent],
   bootstrap: [AppComponent]
 })

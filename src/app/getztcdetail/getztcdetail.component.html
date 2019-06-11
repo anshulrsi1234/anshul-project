@@ -7,9 +7,10 @@ table, th, td {
 }
 </style>
 </head>
-<div  style="border-style: thin; border-width: bold;border-color: #c20f27;overflow:scroll;height:800px;">
+
+<div  style="border-style: thin; border-width: bold;border-color: #c20f27;">
   <h4>Get All ZTC Config</h4>
-  <table *ngIf="records" align="center" class="table">
+  <table *ngIf="records" align="center" class="table" height="100%px">
       <tr>       
         <th (click)="sort('BEPID')" class="table">BEPID
             <span class="glyphicon sort-icon" *ngIf="key =='BEPID'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
@@ -30,6 +31,6 @@ table, th, td {
   </table>
   <div>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
-  </div>
+  </div>  
   <hr>
 </div>

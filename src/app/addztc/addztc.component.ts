@@ -51,8 +51,12 @@ export class AddztcComponent implements OnInit {
 /**
  * Method Will be called on Add/update ZTC Config
  */
-SaveZTCConfig(){
+SaveZTCConfig(event: any){
 
+ const target = event.defaultPrevented
+ const uname = target.queryselector("#uname").value
+
+console.log("User Name is ");
  alert("inside submitZTCConfig lock");
 
  if(isNaN(this.data.ID)){

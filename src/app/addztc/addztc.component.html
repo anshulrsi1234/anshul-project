@@ -4,7 +4,7 @@
   <div *ngIf="ztcError">
       <h4>{{ztcError.description}}</h4>
   </div>
-  <form [formGroup]="addZTCForm" (ngSubmit)="SaveZTCConfig()">
+  <form [formGroup]="addZTCForm" (ngSubmit)="SaveZTCConfig($event)">
   <table align="center" style="margin: 0px auto;">     
       <tr>
         <td align="left"><label>BEPID <font color="red">*</font></label> : </td>
